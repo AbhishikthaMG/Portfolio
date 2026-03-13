@@ -3,93 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operational Reporting Automation - Project Details</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Operational Reporting Automation - Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #1e3c72; 
-            --secondary: #2a5298; 
-            --accent: #ff6b6b; 
-            --bg-light: #f4f7f6;
-            --text-dark: #333;
-            --text-muted: #666;
-        }
-
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
-        
-        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 4rem 2rem; text-align: center; }
-        .hero h1 { margin: 0; font-size: 2.5rem; }
-        
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
-        
-        .back-button { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: 600; }
-        .back-button:hover { color: var(--accent); }
-
-        .card { background: white; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 0; }
-
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .tool-box { background: var(--bg-light); padding: 20px; border-radius: 8px; border-left: 4px solid var(--secondary); }
-        .tool-box h3 { margin-top: 0; color: var(--secondary); display: flex; align-items: center; gap: 10px; }
-
-        .image-gallery { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 20px; }
-        .image-gallery img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #ddd; }
-        .image-caption { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
-
+        :root { --bg-color: #ffffff; --text-main: #111827; --text-light: #6b7280; --accent-color: #2563eb; --surface-color: #f9fafb; --border-color: #e5e7eb; }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; }
+        .nav-bar { padding: 20px 5%; border-bottom: 1px solid var(--border-color); background: white; position: sticky; top: 0; z-index: 100; }
+        .nav-bar a { color: var(--text-light); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
+        .nav-bar a:hover { color: var(--accent-color); }
+        .container { max-width: 800px; margin: 60px auto; padding: 0 20px; }
+        .hero-tag { display: inline-block; padding: 6px 14px; background-color: #eff6ff; color: var(--accent-color); border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        h1 { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin: 0 0 15px 0; color: #1f2937; }
+        .subtitle { font-size: 1.25rem; color: var(--text-light); margin-bottom: 40px; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; background-color: var(--surface-color); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 50px; }
+        .metric { display: flex; flex-direction: column; gap: 5px; }
+        .metric-value { font-size: 2rem; font-weight: 700; color: var(--accent-color); line-height: 1;}
+        .metric-label { font-size: 0.85rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px;}
+        h2 { font-size: 1.8rem; margin-top: 50px; padding-bottom: 10px; border-bottom: 2px solid var(--surface-color); }
+        p, li { font-size: 1.1rem; color: #374151; }
+        ul { padding-left: 20px; } li { margin-bottom: 12px; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+        .tech-tag { padding: 8px 16px; background: white; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; font-weight: 600; color: #4b5563; display: flex; align-items: center; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .project-image { width: 100%; border-radius: 12px; margin: 30px 0; border: 1px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .caption { text-align: center; font-size: 0.9rem; color: var(--text-light); margin-top: -15px; margin-bottom: 30px; }
     </style>
 </head>
 <body>
-
-    <header class="hero">
-        <h1>Operational Reporting Automation Framework</h1>
-        <p>Analyzing 1.2M+ reporting records to resolve reconciliation inconsistencies</p>
-    </header>
-
+    <div class="nav-bar"><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Main Portfolio</a></div>
     <div class="container">
-        <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <span class="hero-tag">Data Quality & Automation</span>
+        <h1>Operational Reporting Automation Framework</h1>
+        <p class="subtitle">An automated data validation framework analyzing massive datasets to identify and resolve reconciliation inconsistencies.</p>
 
-        <div class="card">
-            <h2><i class="fas fa-bullseye"></i> Project Overview</h2>
-            <p>This project focused on designing an automated data validation framework to ensure data integrity across multiple enterprise systems. By comparing upstream transaction systems against downstream reporting datasets, this framework successfully identified anomalies and improved overall data accuracy by 21%.</p>
+        <div class="metrics-grid">
+            <div class="metric"><span class="metric-value">+21%</span><span class="metric-label">Data Accuracy</span></div>
+            <div class="metric"><span class="metric-value">1.2M+</span><span class="metric-label">Records Validated</span></div>
+            <div class="metric"><span class="metric-value">100%</span><span class="metric-label">Process Automation</span></div>
         </div>
 
-        <div class="card">
-            <h2><i class="fas fa-wrench"></i> Tools & Technologies Used</h2>
-            <div class="tools-grid">
-                <div class="tool-box">
-                    <h3><i class="fas fa-database"></i> SQL Validation</h3>
-                    <p>Built complex SQL validation rules to query and compare massive datasets across different databases, catching mismatched amounts and missing records.</p>
-                </div>
-                <div class="tool-box">
-                    <h3><i class="fab fa-python"></i> Python Automation</h3>
-                    <p>Implemented Python-based automation scripts using Pandas to standardize data cleansing and execute daily reconciliation logic seamlessly.</p>
-                </div>
-                <div class="tool-box">
-                    <h3><i class="fas fa-chart-line"></i> Power BI & Excel</h3>
-                    <p>Developed operational dashboards and exception reports tracking data quality metrics, reconciliation exceptions, and reporting SLA performance.</p>
-                </div>
-            </div>
+        <h2>Tech Stack</h2>
+        <div class="tech-stack">
+            <span class="tech-tag"><i class="fas fa-database" style="color: #2563eb;"></i> SQL Validation</span>
+            <span class="tech-tag"><i class="fab fa-python" style="color: #eab308;"></i> Python (Pandas)</span>
+            <span class="tech-tag"><i class="fas fa-file-excel" style="color: #107c41;"></i> Advanced Excel</span>
         </div>
 
-        <div class="card">
-            <h2><i class="fas fa-images"></i> Project Visuals & Output</h2>
-            <p>Below are visuals representing the code structure and data validation outputs from this project.</p>
-            
-            <div class="image-gallery">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="Code Validation Preview">
-                    <p class="image-caption">Figure 1: Python automation scripts handling daily reconciliation exceptions.</p>
-                </div>
-                
-                <div>
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Data Quality Report">
-                    <p class="image-caption">Figure 2: Data quality metric tracking and anomaly detection dashboard.</p>
-                </div>
-            </div>
-        </div>
+        <h2>The Business Problem</h2>
+        <p>Data integrity is paramount in enterprise reporting. The business struggled with reconciliation inconsistencies between upstream transaction systems and downstream reporting datasets. Because the volume of data exceeded <strong>1.2 million operational records</strong>, manually verifying data accuracy was prone to human error, resulting in mismatched amounts and missing records slipping through to executive reports.</p>
 
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Data Quality Report Dashboard" class="project-image">
+        <div class="caption">Figure 1: Exception reporting and anomaly detection output.</div>
+
+        <h2>Methodology & Architecture</h2>
+        <ul>
+            <li><strong>Automated Data Validation:</strong> Built complex SQL validation rules and anomaly detection checks to systematically compare upstream and downstream databases.</li>
+            <li><strong>Python-Driven Cleansing:</strong> Implemented Python automation scripts using Pandas to standardize data cleansing processes and execute daily reconciliation logic seamlessly without manual intervention.</li>
+            <li><strong>Exception Tracking:</strong> Developed operational dashboards and exception reports in Excel/Power BI to track data quality metrics, ongoing reconciliation exceptions, and reporting SLA performance.</li>
+        </ul>
+
+        <h2>The Impact</h2>
+        <p>The implementation of this automated validation framework fundamentally shifted the data quality paradigm for the operations team. By replacing spot-checking with systematic SQL and Python logic, the framework improved overall data accuracy by <strong>21%</strong> and ensured that reporting datasets matched transaction systems flawlessly before executive distribution.</p>
     </div>
-
 </body>
 </html>
