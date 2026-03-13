@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liquidity Risk Analytics - Project Details</title>
+    <title>Presentation: Liquidity Risk Analytics</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,78 +13,133 @@
             --accent: #ff6b6b; 
             --bg-light: #f4f7f6;
             --text-dark: #333;
-            --text-muted: #666;
         }
 
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #e9ecef; color: var(--text-dark); }
         
-        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 4rem 2rem; text-align: center; }
-        .hero h1 { margin: 0; font-size: 2.5rem; }
-        
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
-        
-        .back-button { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: 600; }
+        .nav-bar { background: white; padding: 15px 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;}
+        .back-button { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 1.1rem;}
         .back-button:hover { color: var(--accent); }
 
-        .card { background: white; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 0; }
+        .presentation-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .tool-box { background: var(--bg-light); padding: 20px; border-radius: 8px; border-left: 4px solid var(--secondary); }
-        .tool-box h3 { margin-top: 0; color: var(--secondary); display: flex; align-items: center; gap: 10px; }
+        /* Slide Styling */
+        .slide {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--primary);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        .image-gallery { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 20px; }
-        .image-gallery img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #ddd; }
-        .image-caption { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
+        .slide-title { color: var(--primary); font-size: 2.2rem; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 30px;}
+        
+        /* Layout for Image + Text Slides */
+        .slide-content { display: flex; gap: 40px; align-items: center; }
+        .slide-text { flex: 1; font-size: 1.1rem; line-height: 1.8; }
+        .slide-image { flex: 1; text-align: center; }
+        .slide-image img { max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid #ddd; }
 
+        .slide ul { padding-left: 20px; }
+        .slide ul li { margin-bottom: 15px; }
+
+        .highlight-box { background: var(--bg-light); padding: 20px; border-left: 5px solid var(--accent); border-radius: 0 8px 8px 0; margin-top: 20px;}
+        .highlight-box h4 { margin-top: 0; color: var(--accent); }
+
+        /* Title Slide Special Styling */
+        .title-slide { text-align: center; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border: none; }
+        .title-slide h1 { font-size: 3rem; margin-bottom: 10px; }
+        .title-slide h2 { font-weight: 300; font-size: 1.5rem; color: #d1d8e0; }
+
+        @media (max-width: 768px) {
+            .slide-content { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <h1>Institutional Portfolio Liquidity Risk Analytics</h1>
-        <p>Evaluating trade settlement patterns across 800K+ institutional transactions</p>
-    </header>
+    <div class="nav-bar">
+        <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Exit Presentation & Return to Portfolio</a>
+    </div>
 
-    <div class="container">
-        <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    <div class="presentation-container">
 
-        <div class="card">
-            <h2><i class="fas fa-bullseye"></i> Project Overview</h2>
-            <p>This project focused on building a liquidity risk monitoring analytics model to improve early risk detection for institutional trades. By analyzing historical trade settlement patterns and portfolio exposure data, the reporting pipelines were completely automated, reducing manual effort by 34%.</p>
+        <div class="slide title-slide">
+            <h1>Institutional Portfolio Liquidity Risk Analytics</h1>
+            <h2>Automating Risk Detection Across 800K+ Trades</h2>
+            <p style="margin-top: 40px; font-size: 1.2rem;"><strong>Abhishiktha Munaswamy Gurappa</strong> | Data Analyst</p>
         </div>
 
-        <div class="card">
-            <h2><i class="fas fa-wrench"></i> Tools & Technologies Used</h2>
-            <div class="tools-grid">
-                <div class="tool-box">
-                    <h3><i class="fas fa-database"></i> SQL & Snowflake</h3>
-                    <p>Developed complex SQL queries within the Snowflake data warehouse to aggregate trade lifecycle data, calculating settlement delays and counterparty exposure metrics.</p>
+        <div class="slide">
+            <h2 class="slide-title">1. The Business Problem</h2>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <ul>
+                        <li><strong>Delayed Settlements:</strong> Institutional trades do not settle instantly. When counterparties delay payment, it creates <em>Liquidity Risk</em> by tying up our capital.</li>
+                        <li><strong>Scale & Visibility:</strong> Manual tracking of 800,000+ trades in Excel made it impossible to catch high-exposure delays in real-time.</li>
+                        <li><strong>The Goal:</strong> Automatically flag these delays before they become a massive financial risk to the portfolio.</li>
+                    </ul>
                 </div>
-                <div class="tool-box">
-                    <h3><i class="fab fa-python"></i> Python (Pandas/NumPy)</h3>
-                    <p>Applied statistical trend analysis to calculate Z-scores and flag abnormal settlement delays, identifying liquidity stress indicators to improve risk detection by 17%.</p>
-                </div>
-                <div class="tool-box">
-                    <h3><i class="fas fa-chart-bar"></i> Power BI</h3>
-                    <p>Designed interactive executive dashboards to track portfolio liquidity utilization, settlement efficiency trends, and exposure risk indicators for real-time operational monitoring.</p>
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=600&q=80" alt="Financial Risk Concept">
                 </div>
             </div>
         </div>
 
-        <div class="card">
-            <h2><i class="fas fa-images"></i> Project Visuals & Output</h2>
-            <p>Below are visuals representing the dashboard outputs and data architecture used in this pipeline.</p>
-            
-            <div class="image-gallery">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="Power BI Dashboard Preview">
-                    <p class="image-caption">Figure 1: Power BI Dashboard tracking liquidity utilization and settlement efficiency.</p>
+        <div class="slide">
+            <h2 class="slide-title">2. End-to-End Analytics Pipeline</h2>
+            <div class="slide-content">
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data Pipeline">
                 </div>
-                
-                <div>
-                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1000&q=80" alt="Data Pipeline Visual">
-                    <p class="image-caption">Figure 2: Statistical trend analysis output flagging abnormal settlement delays.</p>
+                <div class="slide-text">
+                    <ul>
+                        <li><strong>Storage:</strong> Snowflake Data Warehouse</li>
+                        <li><strong>Querying & Aggregation:</strong> Complex SQL joins to calculate time-difference metrics across counterparties.</li>
+                        <li><strong>Anomaly Detection:</strong> Python (Pandas & NumPy) statistical engine.</li>
+                        <li><strong>Visualization:</strong> Power BI Executive Dashboard for daily monitoring.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="slide-title">3. Flagging Risk with Python</h2>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <ul>
+                        <li>Calculated the <strong>Mean</strong> and <strong>Standard Deviation</strong> of settlement delays segmented by Asset Class.</li>
+                        <li>Applied <strong>Z-Score methodology</strong> to detect statistically significant outliers.</li>
+                        <li>Automatically categorized massive datasets into <em>Normal</em>, <em>Elevated Risk</em>, and <em>Critical Risk</em> buckets based on their exposure amount and delay length.</li>
+                    </ul>
+                </div>
+                <div class="slide-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data Analysis">
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="slide-title">4. Business Value & Impact</h2>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-arrow-up"></i> +17% Risk Detection</h4>
+                        <p>Significantly improved early identification of liquidity stress indicators, protecting firm capital.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-arrow-down"></i> -34% Manual Effort</h4>
+                        <p>Eliminated the need for weekly manual Excel reporting pipelines, saving hours of analyst time.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-handshake"></i> Proactive Action</h4>
+                        <p>Allowed executive leadership to renegotiate trading terms with counterparties who were consistently flagged as high-risk.</p>
+                    </div>
                 </div>
             </div>
         </div>
