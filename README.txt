@@ -1,32 +1,18 @@
-Forty by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Institutional Portfolio Liquidity Risk Analytics
 
+## 📌 Project Overview
+[cite_start]This project features a liquidity risk monitoring analytics model designed to evaluate historical trade settlement patterns and portfolio exposure data across 800,000+ institutional transactions[cite: 62]. 
 
-This is Forty, my latest and greatest addition to HTML5 UP and, per its incredibly
-creative name, my 40th (woohoo)! It's built around a grid of "image tiles" that are
-set up to smoothly transition to secondary landing pages (for which a separate page
-template is provided), and includes a number of neat effects (check out the menu!),
-extra features, and all the usual stuff you'd expect. Hope you dig it!
+## 🛠️ Tech Stack
+* [cite_start]**Database/Data Warehouse:** Snowflake, SQL [cite: 61]
+* [cite_start]**Analytics & Statistical Modeling:** Python (Pandas, NumPy) [cite: 61]
+* [cite_start]**Data Visualization:** Power BI [cite: 61]
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+## 📊 Business Impact
+* [cite_start]Improved early risk detection capability by 17% by applying statistical trend analysis to identify liquidity stress indicators and abnormal settlement delays[cite: 64].
+* [cite_start]Reduced manual reporting effort by 34% by automating weekly liquidity risk reporting pipelines[cite: 66].
 
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+## 🔍 Methodology
+1. [cite_start]**Data Aggregation (SQL):** Developed complex SQL queries within a Snowflake data warehouse to aggregate trade lifecycle data, including settlement delays, counterparty exposure, and liquidity utilization metrics[cite: 63].
+2. [cite_start]**Anomaly Detection (Python):** Applied statistical trend analysis using Python to flag abnormal settlement delays and liquidity stress indicators[cite: 64].
+3. [cite_start]**Visualization (Power BI):** Designed interactive Power BI dashboards tracking portfolio liquidity utilization, settlement efficiency trends, and exposure risk indicators for operational monitoring[cite: 65].
