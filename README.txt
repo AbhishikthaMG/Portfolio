@@ -1,18 +1,18 @@
-# Institutional Portfolio Liquidity Risk Analytics
+# Operational Reporting Automation & Data Quality Framework
 
 ## 📌 Project Overview
-[cite_start]This project features a liquidity risk monitoring analytics model designed to evaluate historical trade settlement patterns and portfolio exposure data across 800,000+ institutional transactions[cite: 62]. 
+This project features an automated data validation framework designed to analyze 1.2M+ operational reporting records, identifying reconciliation inconsistencies and data integrity issues across multiple reporting systems.
 
 ## 🛠️ Tech Stack
-* [cite_start]**Database/Data Warehouse:** Snowflake, SQL [cite: 61]
-* [cite_start]**Analytics & Statistical Modeling:** Python (Pandas, NumPy) [cite: 61]
-* [cite_start]**Data Visualization:** Power BI [cite: 61]
+* **Database/Querying:** SQL
+* **Automation & Cleansing:** Python
+* **Data Visualization:** Power BI, Excel
 
 ## 📊 Business Impact
-* [cite_start]Improved early risk detection capability by 17% by applying statistical trend analysis to identify liquidity stress indicators and abnormal settlement delays[cite: 64].
-* [cite_start]Reduced manual reporting effort by 34% by automating weekly liquidity risk reporting pipelines[cite: 66].
+* Improved data accuracy by 21% by building SQL validation rules and anomaly detection checks to compare upstream transaction systems against downstream reporting datasets.
+* Reduced reporting preparation time by 29% through the automation of validation checks and data transformation workflows.
 
 ## 🔍 Methodology
-1. [cite_start]**Data Aggregation (SQL):** Developed complex SQL queries within a Snowflake data warehouse to aggregate trade lifecycle data, including settlement delays, counterparty exposure, and liquidity utilization metrics[cite: 63].
-2. [cite_start]**Anomaly Detection (Python):** Applied statistical trend analysis using Python to flag abnormal settlement delays and liquidity stress indicators[cite: 64].
-3. [cite_start]**Visualization (Power BI):** Designed interactive Power BI dashboards tracking portfolio liquidity utilization, settlement efficiency trends, and exposure risk indicators for operational monitoring[cite: 65].
+1. **Data Validation (SQL):** Built validation rules to compare transaction systems against reporting datasets.
+2. **Reconciliation (Python):** Implemented Python-based automation scripts to standardize data cleansing and reconciliation logic across reporting pipelines.
+3. **Monitoring (Power BI):** Developed operational dashboards tracking data quality metrics, reconciliation exceptions, and reporting SLA performance.
