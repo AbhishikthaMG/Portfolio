@@ -16,18 +16,16 @@
             --text-muted: #666;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); }
 
+        /* 1. Hero with Background Image */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            /* We use a linear gradient overlay to make sure the white text is readable over the image */
+            background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
@@ -35,124 +33,61 @@
         .hero h1 { margin: 0; font-size: 3rem; letter-spacing: 1px; }
         .hero h2 { font-weight: 300; font-size: 1.5rem; color: #d1d8e0; margin-top: 10px; }
 
-        .contact-bar {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-bar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s;
-        }
+        .contact-bar { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-bar a { color: white; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
         .contact-bar a:hover { color: var(--accent); }
 
-        .container {
-            max-width: 1100px;
-            margin: -40px auto 40px;
-            padding: 0 20px;
-            position: relative;
-        }
+        .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; position: relative; }
 
-        .section-card {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+        .section-card { background: white; border-radius: 12px; padding: 3rem; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .section-title { color: var(--primary); font-size: 2rem; margin-top: 0; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 1.5rem; }
 
-        .section-title {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-top: 0;
-            border-bottom: 3px solid var(--accent);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 1.5rem;
-        }
+        /* 2. Professional Summary Layout */
+        .summary-flex { display: flex; gap: 30px; align-items: center; }
+        .summary-text { flex: 2; font-size: 1.05rem; line-height: 1.7; color: #444; }
+        .summary-img { flex: 1; }
+        .summary-img img { width: 100%; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+        /* Projects Layout */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .project { background: var(--bg-light); border-radius: 10px; transition: transform 0.3s ease, box-shadow 0.3s ease; overflow: hidden; display: flex; flex-direction: column; }
+        .project:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .project-img-container { width: 100%; height: 220px; overflow: hidden; border-bottom: 4px solid var(--secondary); }
+        .project-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .project-img-container:hover img { transform: scale(1.05); }
+        .project-content { padding: 1.5rem; flex-grow: 1; }
+        .project h3 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; }
+        .badge { background-color: var(--secondary); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin: 0 5px 10px 0;}
+        .project ul { padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; }
 
-        .project {
-            background: var(--bg-light);
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-        }
+        /* Action Banners (Work Experience) */
+        .action-banner { background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: white; padding: 2rem; border-radius: 12px; text-align: center; margin-bottom: 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .action-banner h3 { font-size: 1.8rem; margin: 0 0 10px 0; }
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: background 0.3s; }
+        .btn:hover { background: #ff4c4c; }
 
-        .project:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
+        /* Grid for Education & Certs */
+        .two-col-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+        .edu-box, .cert-box { background: var(--bg-light); padding: 20px; border-radius: 8px; border-left: 5px solid var(--secondary); margin-bottom: 15px;}
+        .edu-box h4 { margin: 0 0 5px 0; color: var(--primary); font-size: 1.2rem;}
+        .cert-flex { display: flex; align-items: center; gap: 15px; }
+        .cert-flex img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
 
-        .project-img-container {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            border-bottom: 4px solid var(--secondary);
-        }
+        /* Contact Form */
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Poppins', sans-serif; box-sizing: border-box;}
+        .form-group textarea { height: 120px; resize: vertical; }
+        .submit-btn { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: bold; width: 100%; transition: 0.3s;}
+        .submit-btn:hover { background: var(--secondary); }
 
-        .project-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+        /* Mini Game Styling */
+        #game-container { width: 100%; height: 250px; background: #e0e6ed; border-radius: 8px; position: relative; overflow: hidden; border: 2px dashed var(--secondary); cursor: crosshair;}
+        #outlier { width: 25px; height: 25px; background: var(--accent); border-radius: 50%; position: absolute; top: 50%; left: 50%; display: none; box-shadow: 0 0 10px rgba(255, 107, 107, 0.8); }
+        .game-controls { text-align: center; margin-bottom: 15px; }
 
-        .project-img-container:hover img {
-            transform: scale(1.05); 
+        @media (max-width: 768px) {
+            .summary-flex { flex-direction: column; }
         }
-
-        .project-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .project h3 {
-            color: var(--primary);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-        }
-
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .badge {
-            background-color: var(--secondary);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .project ul {
-            padding-left: 20px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        .project ul li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -169,14 +104,22 @@
     </header>
 
     <div class="container">
+        
         <section class="section-card">
-            <h2 class="section-title"><i class="fas fa-user"></i> Professional Summary</h2>
-            <p>Data Analyst with 4+ years of experience delivering large-scale analytics, financial data insights, and business intelligence reporting across investment operations and enterprise data platforms.</p>
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
+            <div class="summary-flex">
+                <div class="summary-text">
+                    <p>As a Data Analyst with a robust foundation in enterprise IT, I bring a unique blend of analytical problem-solving and deep infrastructure expertise to the table. Over the past four years, I have dedicated myself to delivering large-scale analytics, financial insights, and business intelligence reporting. I excel at transforming complex datasets into actionable strategic insights.</p>
+                    <p>My analytical career is built upon more than a decade of experience as a Senior Network Engineer, giving me an unparalleled understanding of data architecture, pipeline integrity, and backend system operations. Currently pursuing my Master of Science in Information Science at the University of North Texas, I am continually expanding my expertise in advanced analytics, data engineering, and automation. Whether I am using SQL and Python to reconcile millions of records or building Power BI dashboards to drive operational efficiency, I thrive on solving complex data challenges.</p>
+                </div>
+                <div class="summary-img">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Data Analysis">
+                </div>
+            </div>
         </section>
 
         <section class="section-card">
             <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
-            
             <div class="project-grid">
                 
                 <div class="project">
@@ -185,20 +128,14 @@
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80" alt="Dashboard Preview">
                         </div>
                     </a>
-                    
                     <div class="project-content">
-                        <h3><i class="fas fa-money-bill-trend-up"></i> Institutional Portfolio Liquidity Risk Analytics</h3>
-                        
-                        <div class="badge-container">
-                            <span class="badge">SQL</span>
-                            <span class="badge">Python</span>
-                            <span class="badge">Snowflake</span>
-                            <span class="badge">Power BI</span>
+                        <h3><i class="fas fa-money-bill-trend-up"></i> Institutional Liquidity Risk Analytics</h3>
+                        <div>
+                            <span class="badge">SQL</span><span class="badge">Python</span><span class="badge">Power BI</span>
                         </div>
-
                         <ul>
-                            <li>Built a liquidity risk monitoring analytics model evaluating historical trade settlement patterns and portfolio exposure data across 800K+ institutional transactions.</li>
-                            <li>Applied statistical trend analysis using Python to identify liquidity stress indicators and abnormal settlement delays, improving early risk detection capability by 17%.</li>
+                            <li>Built a liquidity risk analytics model evaluating settlement patterns across 800K+ institutional transactions.</li>
+                            <li>Applied statistical trend analysis to improve early risk detection capability by 17%.</li>
                         </ul>
                     </div>
                 </div>
@@ -209,28 +146,149 @@
                             <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Code Preview">
                         </div>
                     </a>
-
                     <div class="project-content">
-                        <h3><i class="fas fa-database"></i> Operational Reporting Automation Framework</h3>
-                        
-                        <div class="badge-container">
-                            <span class="badge">SQL</span>
-                            <span class="badge">Python</span>
-                            <span class="badge">Power BI</span>
-                            <span class="badge">Excel</span>
+                        <h3><i class="fas fa-database"></i> Operational Reporting Automation</h3>
+                        <div>
+                            <span class="badge">SQL</span><span class="badge">Python</span><span class="badge">Excel</span>
                         </div>
-
                         <ul>
-                            <li>Designed an automated data validation framework analyzing 1.2M+ operational reporting records to identify reconciliation inconsistencies.</li>
-                            <li>Built SQL validation rules and anomaly detection checks to compare upstream transaction systems against downstream reporting datasets, improving data accuracy by 21%.</li>
+                            <li>Designed an automated data validation framework analyzing 1.2M+ records to identify inconsistencies.</li>
+                            <li>Built anomaly detection checks to compare systems, improving data accuracy by 21%.</li>
                         </ul>
                     </div>
                 </div>
 
             </div>
         </section>
+
+        <div class="action-banner">
+            <h3>Explore My Career Journey</h3>
+            <p>From Senior Network Engineering across global infrastructures to driving Enterprise Data Analytics.</p>
+            <a href="work-experience.html" class="btn"><i class="fas fa-briefcase"></i> View Work Experience</a>
+        </div>
+
+        <section class="section-card">
+            <div class="two-col-grid">
+                
+                <div>
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="edu-box">
+                        <h4>Master of Science, Information Science</h4>
+                        <p><strong>University of North Texas (UNT)</strong><br>
+                        <em>Focus: Data Analytics & Information Systems</em></p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+                    <div class="cert-box cert-flex">
+                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=150&q=80" alt="Cert Icon">
+                        <div>
+                            <h4>Advanced Data Analytics</h4>
+                            <p style="margin: 0; color: var(--text-muted);">Data Modeling & Visualization</p>
+                        </div>
+                    </div>
+                    <div class="cert-box cert-flex">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=150&q=80" alt="Cert Icon">
+                        <div>
+                            <h4>Cisco Certified (CCNA)</h4>
+                            <p style="margin: 0; color: var(--text-muted);">Network Infrastructure Security</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2 class="section-title"><i class="fas fa-gamepad"></i> Take a Break: Catch the Data Outlier!</h2>
+            <p>Data Analysts find anomalies. Click the red "outlier" dot as fast as you can before it moves to increase your score!</p>
+            
+            <div class="game-controls">
+                <button id="startBtn" class="btn">Start Finding Outliers</button>
+                <span style="font-size: 1.2rem; font-weight: bold; margin-left: 20px; color: var(--primary);">Score: <span id="score">0</span></span>
+            </div>
+
+            <div id="game-container">
+                <div id="outlier"></div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2 class="section-title"><i class="fas fa-paper-plane"></i> Send a Message</h2>
+            <p>Interested in connecting? Fill out the form below to open an email draft directly to me!</p>
+            
+            <form action="mailto:abhishikthagurappa@gmail.com" method="GET" enctype="text/plain">
+                <div class="form-group">
+                    <label>Your Name / Subject</label>
+                    <input type="text" name="subject" placeholder="John Doe - Data Analyst Role" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Message</label>
+                    <textarea name="body" placeholder="Hi Abhishiktha, I loved your portfolio and would like to connect about..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn"><i class="fas fa-envelope"></i> Open in Email Client</button>
+            </form>
+        </section>
+
     </div>
 
+    <script>
+        const outlier = document.getElementById('outlier');
+        const gameContainer = document.getElementById('game-container');
+        const scoreDisplay = document.getElementById('score');
+        const startBtn = document.getElementById('startBtn');
+        let score = 0;
+        let gameInterval;
+        let isPlaying = false;
+
+        function moveOutlier() {
+            const containerRect = gameContainer.getBoundingClientRect();
+            const maxX = containerRect.width - 25;
+            const maxY = containerRect.height - 25;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            outlier.style.left = randomX + 'px';
+            outlier.style.top = randomY + 'px';
+        }
+
+        outlier.addEventListener('click', () => {
+            if (isPlaying) {
+                score++;
+                scoreDisplay.textContent = score;
+                moveOutlier();
+                
+                // Speed it up slightly as they score
+                clearInterval(gameInterval);
+                let newSpeed = Math.max(400, 1000 - (score * 50)); 
+                gameInterval = setInterval(moveOutlier, newSpeed);
+            }
+        });
+
+        startBtn.addEventListener('click', () => {
+            if (isPlaying) return;
+            isPlaying = true;
+            score = 0;
+            scoreDisplay.textContent = score;
+            outlier.style.display = 'block';
+            moveOutlier();
+            startBtn.textContent = "Game Running...";
+            startBtn.style.background = "gray";
+            
+            gameInterval = setInterval(moveOutlier, 1000);
+            
+            // End game after 15 seconds
+            setTimeout(() => {
+                isPlaying = false;
+                clearInterval(gameInterval);
+                outlier.style.display = 'none';
+                startBtn.textContent = "Play Again";
+                startBtn.style.background = "var(--accent)";
+                alert("Game Over! You caught " + score + " outliers. Great eye!");
+            }, 15000);
+        });
+    </script>
 </body>
 </html>
-
