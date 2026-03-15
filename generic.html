@@ -1,79 +1,128 @@
 <!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Generic - Forty by HTML5 UP</title>
+		<title>Project Details - 3D Experience</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			:root {
+				--bg-deep: #0f172a; 
+				--glass-bg: rgba(255, 255, 255, 0.05); 
+				--glass-border: rgba(255, 255, 255, 0.1);
+			}
+
+			/* Override default background with deep 3D gradient */
+			body.is-preload, body, #wrapper {
+				background-color: var(--bg-deep) !important;
+				background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%) !important;
+			}
+
+			/* Make header glassy */
+			#header {
+				background: rgba(15, 23, 42, 0.8) !important;
+				backdrop-filter: blur(10px);
+				border-bottom: 1px solid var(--glass-border);
+			}
+
+			/* 3D Main Content Container */
+			#main { background: transparent !important; }
+			#one .inner {
+				background: var(--glass-bg) !important;
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--glass-border);
+				border-radius: 20px;
+				margin: 4em auto !important;
+				max-width: 65em;
+				padding: 4em 3em !important;
+				box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+				transform-style: preserve-3d;
+			}
+			
+			/* Pop out text and images */
+			#one .inner > * { transform: translateZ(30px); }
+			.image.main { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+			/* 3D Contact Section */
+			#contact { background: transparent !important; }
+			#contact .inner {
+				background: var(--glass-bg) !important;
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--glass-border);
+				border-radius: 20px;
+				padding: 3em !important;
+				box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+				transform-style: preserve-3d;
+				margin-bottom: 3em;
+			}
+			#contact .inner > * { transform: translateZ(30px); }
+
+			/* Fix form inputs for glass theme */
+			input[type="text"], input[type="email"], textarea {
+				background: rgba(0,0,0,0.2) !important;
+				border-color: var(--glass-border) !important;
+				color: white !important;
+			}
+			input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+				border-color: #4facfe !important;
+				box-shadow: 0 0 10px rgba(79, 172, 254, 0.3) !important;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+				<header id="header">
+						<a href="index.html" class="logo"><strong>AM</strong> <span>PortFolio</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
 					</header>
 
-				<!-- Menu -->
-					<nav id="menu">
+				<nav id="menu">
 						<ul class="links">
 							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
 						</ul>
 					</nav>
 
-				<!-- Main -->
-					<div id="main" class="alt">
+				<div id="main" class="alt">
 
-						<!-- One -->
-							<section id="one">
-								<div class="inner">
+						<section id="one">
+								<div class="inner" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
 									<header class="major">
-										<h1>Generic</h1>
+										<h1>Project Title Goes Here</h1>
 									</header>
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+									<p>Replace this text with the detailed breakdown of your project. For example, if this is for the <strong>Zero Trust Security</strong> project, you would explain the architecture, the tools you used, and the outcomes you achieved here.</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor.</p>
+									<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet.</p>
 								</div>
 							</section>
 
 					</div>
 
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
+				<section id="contact">
+						<div class="inner" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
 							<section>
-								<form method="post" action="#">
+								<form method="POST" action="https://formspree.io/f/xeerlqzl">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
+											<input type="text" name="name" id="name" required />
 										</div>
 										<div class="field half">
 											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<input type="email" name="email" id="email" required />
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
+											<textarea name="message" id="message" rows="6" required></textarea>
 										</div>
 									</div>
 									<ul class="actions">
@@ -87,55 +136,52 @@
 									<div class="contact-method">
 										<span class="icon solid alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
+										<a href="mailto:abhishikthamunaswamygurappa@my.unt.edu">abhishikthamunaswamygurappa@my.unt.edu</a>
 									</div>
 								</section>
 								<section>
 									<div class="contact-method">
 										<span class="icon solid alt fa-phone"></span>
 										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
+										<span>+1 (940) 594-5330</span>
 									</div>
 								</section>
 								<section>
 									<div class="contact-method">
 										<span class="icon solid alt fa-home"></span>
 										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
+										<span>1103 Bernard Street, Apt 728<br />
+										Denton, Texas<br />
+										United States</span>
 									</div>
 								</section>
 							</section>
 						</div>
 					</section>
 
-				<!-- Footer -->
-					<footer id="footer">
+				<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
 								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 							</ul>
 							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Abhishiktha M.G.</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</footer>
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
 	</body>
 </html>
