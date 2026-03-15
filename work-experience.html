@@ -1,104 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Experience - 3D Career Journey</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            /* 3D Dark Theme Variables */
-            --primary: #4facfe; 
-            --secondary: #00f2fe; 
-            --accent: #ff0844; 
-            --bg-deep: #0f172a; 
-            --glass-bg: rgba(255, 255, 255, 0.05); 
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Work Experience - 3D Experience</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: var(--bg-deep); 
-            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
-            color: var(--text-main); 
-            line-height: 1.6; 
-            overflow-x: hidden;
-        }
-        
-        /* 3D Glass Navigation */
-        .nav-bar { 
-            padding: 20px 5%; 
-            border-bottom: 1px solid var(--glass-border); 
-            background: rgba(15, 23, 42, 0.8); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
-        }
-        .back-button { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: color 0.3s;}
-        .back-button:hover { color: var(--primary); }
+		<style>
+			:root {
+				--bg-deep: #0f172a; 
+				--glass-bg: rgba(255, 255, 255, 0.05); 
+				--glass-border: rgba(255, 255, 255, 0.1);
+			}
 
-        /* Floating Hero Section */
-        .hero { 
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%); 
-            color: var(--text-main); 
-            padding: 4rem 2rem; 
-            text-align: center; 
-            border-bottom: 1px solid var(--glass-border);
-            transform-style: preserve-3d;
-        }
-        
-        .hero-content { animation: float 6s ease-in-out infinite; }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+			body.is-preload, body, #wrapper {
+				background-color: var(--bg-deep) !important;
+				background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%) !important;
+			}
 
-        .hero h1 { margin: 0; font-size: 2.8rem; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.2rem; color: var(--primary); margin-top: 10px; }
+			#header {
+				background: rgba(15, 23, 42, 0.8) !important;
+				backdrop-filter: blur(10px);
+				border-bottom: 1px solid var(--glass-border);
+			}
 
-        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; perspective: 1000px; }
+			#main { background: transparent !important; }
+			
+			/* 3D Glass Job Cards */
+			.job-card {
+				background: var(--glass-bg) !important;
+				backdrop-filter: blur(12px);
+				border: 1px solid var(--glass-border);
+				border-radius: 20px;
+				margin: 3em auto !important;
+				max-width: 65em;
+				padding: 4em 3em !important;
+				box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+				transform-style: preserve-3d;
+			}
+			
+			/* Pop out text */
+			.job-card > * { transform: translateZ(30px); }
+			
+			.job-card h2 { margin-bottom: 0.2em; color: #fff; }
+			.job-card h3 { color: #4facfe; margin-bottom: 0.5em; letter-spacing: 1px;}
+			.date-stamp { font-weight: 600; color: #94a3b8; display: block; margin-bottom: 1.5em; border-bottom: 1px solid var(--glass-border); padding-bottom: 1em;}
+			.job-card ul { padding-left: 1.5em; color: #cbd5e1; }
+			.job-card li { margin-bottom: 0.8em; }
+		</style>
+	</head>
+	<body class="is-preload">
 
-        /* Glowing Timeline */
-        .timeline { border-left: 4px solid rgba(79, 172, 254, 0.3); padding-left: 30px; margin-left: 20px; position: relative; }
-        
-        /* 3D Glass Job Cards */
-        .job-card { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            padding: 30px; 
-            border-radius: 15px; 
-            margin-bottom: 40px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
-            position: relative; 
-            transform-style: preserve-3d; 
-        }
-        
-        /* Glowing Dots */
-        .job-card::before { 
-            content: ''; 
-            position: absolute; 
-            left: -48px; 
-            top: 35px; 
-            width: 20px; 
-            height: 20px; 
-            background: var(--accent); 
-            border-radius: 50%; 
-            border: 4px solid var(--bg-deep); 
-            box-shadow: 0 0 15px var(--accent);
-        }
+		<div id="wrapper">
 
-        /* Pop-out Text effect */
-        .job-card > * { transform: translateZ(30px); }
+				<header id="header">
+						<a href="index.html" class="logo"><strong>AM</strong> <span>PortFolio</span></a>
+						<nav>
+							<a href="index.html">Back to Home</a>
+						</nav>
+					</header>
 
-        .job-title { color: var(--text-main); font-size: 1.8rem; margin: 0 0 5px 0; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .company
+				<div id="main" class="alt">
+
+						<section id="one">
+							<div class="inner" style="text-align: center; margin-bottom: 2em;">
+								<header class="major">
+									<h1 style="border-bottom: none;">Career Journey</h1>
+								</header>
+								<p style="font-size: 1.2em; color: #4facfe;">4+ Years Driving Enterprise Data Analytics & Business Intelligence</p>
+							</div>
+						</section>
+
+						<div class="job-card" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+							<header class="major">
+								<h2>Data Analyst</h2>
+							</header>
+							<h3>State Street, US</h3>
+							<span class="date-stamp"><i class="fas fa-calendar-alt"></i> Jan 2025 - Present</span>
+							<p>Business Analyst supporting enterprise reporting modernization and operational risk visibility initiatives across asset servicing operations handling high-volume institutional financial transactions. [cite: 24]</p>
+							<ul>
+								<li>Reduced manual reporting effort by 38% through BI automation and workflow redesign across investment operations reporting processes. [cite: 26]</li>
+								<li>Improved reconciliation data accuracy by 27% through implementation of SQL-driven validation controls across transaction processing pipelines. [cite: 27]</li>
+								<li>Accelerated monthly reporting cycle from 5 days to 2.5 days by automating reconciliation datasets within Snowflake and Databricks environments. [cite: 28]</li>
+							</ul>
+						</div>
+
+						<div class="job-card" data-tilt data-tilt-max="2" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+							<header class="major">
+								<h2>Data Analyst</h2>
+							</header>
+							<h3>Phoenix Tech Hub, India</h3>
+							<span class="date-stamp"><i class="fas fa-calendar-alt"></i> Oct 2020 - Dec 2023</span>
+							<p>Data Analyst responsible for enterprise analytics, reporting automation, and customer behavior insights across multi-client data environments supporting financial and operational decision-making. [cite: 44]</p>
+							<ul>
+								<li>Reduced financial reporting cycle time by 22% through automated SQL-driven validation and reconciliation workflows. [cite: 46]</li>
+								<li>Decreased reconciliation discrepancies by 28% through unified data models integrating 12 disparate operational systems. [cite: 47]</li>
+								<li>Improved campaign performance visibility by 17% through KPI-driven Power BI dashboards used by marketing leadership. [cite: 48]</li>
+								<li>Cut manual reporting workload by 35% through automation of recurring reporting pipelines. [cite: 50]</li>
+							</ul>
+						</div>
+
+					</div>
+
+				<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Abhishiktha M.G.</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+	</body>
+</html>
