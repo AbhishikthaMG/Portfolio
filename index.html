@@ -3,77 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishiktha Munaswamy Gurappa - Data Analyst</title>
+    <title>Abhishiktha Munaswamy Gurappa - 3D Data Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-:root {
-            --primary: #1e3c72; 
-            --secondary: #2a5298; 
-            --accent: #ff6b6b; 
-            --bg-light: #f4f7f6;
-            --text-dark: #333;
-            --text-muted: #666;
+        :root {
+            /* 3D Dark Theme Variables */
+            --primary: #4facfe; 
+            --secondary: #00f2fe; 
+            --accent: #ff0844; 
+            --bg-deep: #0f172a; /* Deep navy background for 3D depth */
+            --glass-bg: rgba(255, 255, 255, 0.05); /* Glassmorphism */
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
-  body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); }
 
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--bg-deep); 
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
+            color: var(--text-main); 
+            overflow-x: hidden;
+        }
+
+        /* 3D Floating Hero Section */
         .hero {
-            background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 6rem 2rem;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') center/cover;
+            position: relative;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
         }
 
-        .hero h1 { margin: 0; font-size: 3rem; letter-spacing: 1px; }
-        .hero h2 { font-weight: 300; font-size: 1.5rem; color: #d1d8e0; margin-top: 10px; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.85); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero h1 { margin: 0; font-size: 3.5rem; letter-spacing: 1px; text-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .hero h2 { font-weight: 300; font-size: 1.5rem; color: var(--primary); margin-top: 10px; }
 
         .contact-bar { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-bar a { color: white; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
-        .contact-bar a:hover { color: var(--accent); }
+        .contact-bar a { color: var(--text-main); text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+        .contact-bar a:hover { color: var(--primary); }
 
-        .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; position: relative; }
+        .container { max-width: 1100px; margin: -60px auto 40px; padding: 0 20px; position: relative; z-index: 10; perspective: 1000px; }
 
-        .section-card { background: white; border-radius: 12px; padding: 3rem; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .section-title { color: var(--primary); font-size: 2rem; margin-top: 0; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 1.5rem; }
+        /* 3D Glassmorphism Cards */
+        .section-card { 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px; 
+            padding: 3rem; 
+            margin-bottom: 2.5rem; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+            transform-style: preserve-3d; /* Enables 3D inside card */
+        }
+        
+        /* 3D pop-out effect for text inside cards */
+        .section-card h2, .section-card p, .project, .edu-box, .cert-box {
+            transform: translateZ(30px);
+        }
+
+        .section-title { color: var(--primary); font-size: 2rem; margin-top: 0; border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 5px; margin-bottom: 1.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.3);}
 
         .summary-flex { display: flex; gap: 30px; align-items: center; }
-        .summary-text { flex: 2; font-size: 1.05rem; line-height: 1.7; color: #444; }
-        .summary-img { flex: 1; }
-        .summary-img img { width: 100%; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .summary-text { flex: 2; font-size: 1.05rem; line-height: 1.7; color: var(--text-muted); }
+        .summary-img { flex: 1; transform: translateZ(50px); }
+        .summary-img img { width: 100%; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
 
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .project { background: var(--bg-light); border-radius: 10px; transition: transform 0.3s ease, box-shadow 0.3s ease; overflow: hidden; display: flex; flex-direction: column; }
-        .project:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-        .project-img-container { width: 100%; height: 220px; overflow: hidden; border-bottom: 4px solid var(--secondary); }
-        .project-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .project-content { padding: 1.5rem; flex-grow: 1; }
-        .project h3 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; }
-        .badge { background-color: var(--secondary); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin: 0 5px 10px 0;}
+        .project { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; display: flex; flex-direction: column; transform-style: preserve-3d;}
+        .project-img-container { width: 100%; height: 220px; overflow: hidden; border-bottom: 4px solid var(--primary); transform: translateZ(40px);}
+        .project-img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .project-content { padding: 1.5rem; flex-grow: 1; transform: translateZ(30px); }
+        .project h3 { color: var(--text-main); margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; }
+        .badge { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin: 0 5px 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2);}
         .project ul { padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; }
+        .project a { text-decoration: none; }
 
-        .action-banner { background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: white; padding: 2.5rem; border-radius: 12px; text-align: center; margin-bottom: 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .action-banner h3 { font-size: 1.8rem; margin: 0 0 10px 0; }
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: background 0.3s; }
-        .btn:hover { background: #ff4c4c; }
+        .action-banner { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; padding: 2.5rem; border-radius: 20px; text-align: center; margin-bottom: 2rem; box-shadow: 0 20px 40px rgba(0,100,255,0.2); transform-style: preserve-3d;}
+        .action-banner h3 { font-size: 1.8rem; margin: 0 0 10px 0; transform: translateZ(40px);}
+        .btn { display: inline-block; background: var(--bg-deep); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: background 0.3s; transform: translateZ(50px); box-shadow: 0 10px 20px rgba(0,0,0,0.3);}
+        .btn:hover { background: #1e293b; }
 
-        .edu-box, .cert-box { background: var(--bg-light); padding: 20px; border-radius: 8px; border-left: 5px solid var(--secondary); margin-bottom: 15px;}
+        .edu-box, .cert-box { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; border-left: 5px solid var(--primary); margin-bottom: 15px; border: 1px solid var(--glass-border);}
         .edu-box h4 { margin: 0 0 5px 0; color: var(--primary); font-size: 1.2rem;}
         .cert-flex { display: flex; align-items: center; gap: 15px; }
-        .cert-flex img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .cert-flex img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; transform: translateZ(30px); }
 
         .form-group { margin-bottom: 15px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Poppins', sans-serif; box-sizing: border-box;}
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--text-muted);}
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--glass-border); border-radius: 8px; font-family: 'Poppins', sans-serif; box-sizing: border-box; background: rgba(0,0,0,0.2); color: white;}
         .form-group textarea { height: 120px; resize: vertical; }
-        .submit-btn { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: bold; width: 100%; transition: 0.3s;}
-        .submit-btn:hover { background: var(--secondary); }
+        .submit-btn { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; font-size: 1rem; font-weight: bold; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transform: translateZ(30px);}
 
-        #game-container { width: 100%; height: 250px; background: #e0e6ed; border-radius: 8px; position: relative; overflow: hidden; border: 2px dashed var(--secondary); cursor: crosshair;}
-        #outlier { width: 25px; height: 25px; background: var(--accent); border-radius: 50%; position: absolute; top: 50%; left: 50%; display: none; box-shadow: 0 0 10px rgba(255, 107, 107, 0.8); }
-        .game-controls { text-align: center; margin-bottom: 15px; }
+        #game-container { width: 100%; height: 250px; background: rgba(0,0,0,0.3); border-radius: 15px; position: relative; overflow: hidden; border: 2px dashed var(--primary); cursor: crosshair; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);}
+        #outlier { width: 25px; height: 25px; background: var(--accent); border-radius: 50%; position: absolute; top: 50%; left: 50%; display: none; box-shadow: 0 0 15px rgba(255, 8, 68, 0.8); }
+        .game-controls { text-align: center; margin-bottom: 15px; transform: translateZ(40px);}
 
         @media (max-width: 768px) {
             .summary-flex { flex-direction: column; }
@@ -83,17 +134,19 @@
 <body>
 
     <header class="hero">
-        <h1>Abhishiktha Munaswamy Gurappa</h1>
-        <h2><i class="fas fa-chart-pie"></i> Data Analyst</h2>
-        <div class="contact-bar">
-            <a href="mailto:abhishikthagurappa@gmail.com"><i class="fas fa-envelope"></i> abhishikthagurappa@gmail.com</a>
-            <a href="tel:+19405945330"><i class="fas fa-phone"></i> +1 (940) 594 5330</a>
+        <div class="hero-content">
+            <h1>Abhishiktha Munaswamy Gurappa</h1>
+            <h2><i class="fas fa-chart-pie"></i> Data Analyst</h2>
+            <div class="contact-bar">
+                <a href="mailto:abhishikthagurappa@gmail.com"><i class="fas fa-envelope"></i> abhishikthagurappa@gmail.com</a>
+                <a href="tel:+19405945330"><i class="fas fa-phone"></i> +1 (940) 594 5330</a>
+            </div>
         </div>
     </header>
 
     <div class="container">
         
-        <section class="section-card">
+        <section class="section-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
             <h2 class="section-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
             <div class="summary-flex">
                 <div class="summary-text">
@@ -106,10 +159,10 @@
             </div>
         </section>
 
-        <section class="section-card">
+        <section class="section-card" data-tilt data-tilt-max="2" data-tilt-speed="400">
             <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
             <div class="project-grid">
-                <div class="project">
+                <div class="project" data-tilt data-tilt-max="10" data-tilt-scale="1.05" data-tilt-glare="true" data-tilt-max-glare="0.2">
                     <a href="project-liquidity.html">
                         <div class="project-img-container">
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80" alt="Dashboard Preview">
@@ -124,7 +177,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-tilt data-tilt-max="10" data-tilt-scale="1.05" data-tilt-glare="true" data-tilt-max-glare="0.2">
                     <a href="project-reporting.html">
                         <div class="project-img-container">
                             <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Code Preview">
@@ -142,50 +195,50 @@
             </div>
         </section>
 
-        <div class="action-banner">
+        <div class="action-banner" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.3">
             <h3>4+ Years of Professional Data Analytics</h3>
             <p>Expert in automating reporting pipelines and improving reconciliation accuracy.</p>
-            <div style="margin: 20px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                <div style="text-align: center;"><span style="font-size: 1.5rem; font-weight: bold; color: var(--accent);">-38%</span><br><small>Manual Effort</small></div>
-                <div style="text-align: center;"><span style="font-size: 1.5rem; font-weight: bold; color: var(--accent);">25M+</span><br><small>Trades Analyzed </small></div>
-                <div style="text-align: center;"><span style="font-size: 1.5rem; font-weight: bold; color: var(--accent);">88%</span><br><small>Model Accuracy</small></div>
+            <div style="margin: 20px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; transform: translateZ(40px);">
+                <div style="text-align: center;"><span style="font-size: 1.5rem; font-weight: bold; color: var(--bg-deep);">-38%</span><br><small>Manual Effort</small></div>
+                <div style="text-align: center;"><span style="font-size: 1.5rem; font-weight: bold; color: var(--bg-deep);">25M+</span><br><small>Trades Analyzed </small></div>
+                <div style="text-align: center;"><span style="font-size: 1.5rem; font-weight: bold; color: var(--bg-deep);">88%</span><br><small>Model Accuracy</small></div>
             </div>
             <a href="work-experience.html" class="btn"><i class="fas fa-briefcase"></i> View Full Career Journey</a>
         </div>
 
-        <section class="section-card">
+        <section class="section-card" data-tilt data-tilt-max="2" data-tilt-speed="400">
             <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="edu-box">
+            <div class="edu-box" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.1">
                 <h4>Master of Science, Information Systems </h4>
-                <p><strong>University of North Texas, TX, USA</strong></p>
+                <p style="color: var(--text-muted);"><strong>University of North Texas, TX, USA</strong></p>
             </div>
-            <div class="edu-box">
+            <div class="edu-box" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.1">
                 <h4>Bachelor of Technology</h4>
-                <p><strong>JNTUA College Of Engineering Kalikiri, India </strong></p>
+                <p style="color: var(--text-muted);"><strong>JNTUA College Of Engineering Kalikiri, India </strong></p>
             </div>
 
             <h2 class="section-title" style="margin-top: 40px;"><i class="fas fa-certificate"></i> Certifications</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
-                <div class="cert-box cert-flex">
+                <div class="cert-box cert-flex" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.2">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=150&q=80" alt="Data Icon">
-                    <div><h4>Power BI Data Analyst Associate</h4><p>Microsoft Certified</p></div>
+                    <div><h4 style="margin-bottom: 0;">Power BI Data Analyst Associate</h4><p style="margin: 0; color: var(--text-muted);">Microsoft Certified</p></div>
                 </div>
-                <div class="cert-box cert-flex">
+                <div class="cert-box cert-flex" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.2">
                     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=150&q=80" alt="Cloud Icon">
-                    <div><h4>Azure Fundamentals</h4><p>Microsoft Certified</p></div>
+                    <div><h4 style="margin-bottom: 0;">Azure Fundamentals</h4><p style="margin: 0; color: var(--text-muted);">Microsoft Certified</p></div>
                 </div>
-                <div class="cert-box cert-flex">
+                <div class="cert-box cert-flex" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.2">
                     <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=150&q=80" alt="Code Icon">
-                    <div><h4>SQL Programming Certification </h4><p>LinkedIn Learning</p></div>
+                    <div><h4 style="margin-bottom: 0;">SQL Programming Certification</h4><p style="margin: 0; color: var(--text-muted);">LinkedIn Learning</p></div>
                 </div>
-                <div class="cert-box cert-flex">
+                <div class="cert-box cert-flex" data-tilt data-tilt-max="10" data-tilt-glare="true" data-tilt-max-glare="0.2">
                     <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=150&q=80" alt="Network Icon">
-                    <div><h4>Cisco Certified (CCNA) </h4><p>Network Associate</p></div>
+                    <div><h4 style="margin-bottom: 0;">Cisco Certified (CCNA)</h4><p style="margin: 0; color: var(--text-muted);">Network Associate</p></div>
                 </div>
             </div>
         </section>
 
-        <section class="section-card">
+        <section class="section-card" data-tilt data-tilt-max="2" data-tilt-speed="400">
             <h2 class="section-title"><i class="fas fa-gamepad"></i> Take a Break: Catch the Data Outlier!</h2>
             <p>Data Analysts find anomalies. Click the red "outlier" dot as fast as you can to increase your score!</p>
             <div class="game-controls">
@@ -195,10 +248,10 @@
             <div id="game-container"><div id="outlier"></div></div>
         </section>
 
-        <section class="section-card" style="text-align: center;">
+        <section class="section-card" style="text-align: center;" data-tilt data-tilt-max="2" data-tilt-speed="400">
             <h2 class="section-title"><i class="fas fa-paper-plane"></i> Contact Me</h2>
             <p>Interested in my work at <strong>State Street</strong> or <strong>Phoenix Tech Hub</strong>? Fill out the form below.</p>
-            <form action="https://formspree.io/f/xeerlqzl" method="POST">
+            <form action="https://formspree.io/f/xeerlqzl" method="POST" style="transform: translateZ(30px);">
                 <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
                 <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
                 <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
@@ -208,7 +261,10 @@
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    
     <script>
+        // Mini Game Logic
         const outlier = document.getElementById('outlier');
         const gameContainer = document.getElementById('game-container');
         const scoreDisplay = document.getElementById('score');
