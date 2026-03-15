@@ -3,40 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liquidity Risk Analytics - Case Study</title>
+    <title>Liquidity Risk Analytics - 3D Case Study</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --bg-color: #ffffff; --text-main: #111827; --text-light: #6b7280; --accent-color: #2563eb; --surface-color: #f9fafb; --border-color: #e5e7eb; }
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; }
-        .nav-bar { padding: 20px 5%; border-bottom: 1px solid var(--border-color); background: white; position: sticky; top: 0; z-index: 100; }
-        .nav-bar a { color: var(--text-light); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
-        .nav-bar a:hover { color: var(--accent-color); }
-        .container { max-width: 800px; margin: 60px auto; padding: 0 20px; }
-        .hero-tag { display: inline-block; padding: 6px 14px; background-color: #eff6ff; color: var(--accent-color); border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
-        h1 { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin: 0 0 15px 0; color: #1f2937; }
-        .subtitle { font-size: 1.25rem; color: var(--text-light); margin-bottom: 40px; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; background-color: var(--surface-color); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 50px; }
-        .metric { display: flex; flex-direction: column; gap: 5px; }
-        .metric-value { font-size: 2rem; font-weight: 700; color: var(--accent-color); line-height: 1;}
-        .metric-label { font-size: 0.85rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px;}
-        h2 { font-size: 1.8rem; margin-top: 50px; padding-bottom: 10px; border-bottom: 2px solid var(--surface-color); }
-        p, li { font-size: 1.1rem; color: #374151; }
+        :root {
+            /* 3D Dark Theme Variables */
+            --primary: #4facfe; 
+            --secondary: #00f2fe; 
+            --accent: #ff0844; 
+            --bg-deep: #0f172a; 
+            --glass-bg: rgba(255, 255, 255, 0.05); 
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--bg-deep); 
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
+            color: var(--text-main); 
+            line-height: 1.8; 
+            overflow-x: hidden;
+        }
+
+        /* 3D Glass Navigation */
+        .nav-bar { 
+            padding: 20px 5%; 
+            border-bottom: 1px solid var(--glass-border); 
+            background: rgba(15, 23, 42, 0.8); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        .nav-bar a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
+        .nav-bar a:hover { color: var(--primary); }
+        
+        .container { max-width: 800px; margin: 60px auto; padding: 0 20px; perspective: 1000px;}
+
+        /* Typography */
+        .hero-tag { 
+            display: inline-block; 
+            padding: 6px 14px; 
+            background: rgba(79, 172, 254, 0.1); 
+            color: var(--primary); 
+            border: 1px solid var(--primary);
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            box-shadow: 0 0 10px rgba(79, 172, 254, 0.3);
+        }
+        h1 { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin: 0 0 15px 0; color: var(--text-main); text-shadow: 0 5px 15px rgba(0,0,0,0.5);}
+        .subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; }
+        h2 { font-size: 1.8rem; margin-top: 50px; padding-bottom: 10px; border-bottom: 2px solid var(--glass-border); color: var(--primary); text-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+        p, li { font-size: 1.1rem; color: var(--text-muted); }
         ul { padding-left: 20px; } li { margin-bottom: 12px; }
-        .tech-stack { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-        .tech-tag { padding: 8px 16px; background: white; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; font-weight: 600; color: #4b5563; display: flex; align-items: center; gap: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-        .project-image { width: 100%; border-radius: 12px; margin: 30px 0; border: 1px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .caption { text-align: center; font-size: 0.9rem; color: var(--text-light); margin-top: -15px; margin-bottom: 30px; }
+
+        /* 3D Metrics Dashboard */
+        .metrics-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; 
+            background: var(--glass-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); 
+            padding: 30px; 
+            border-radius: 15px; 
+            margin-bottom: 50px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform-style: preserve-3d;
+        }
+        .metric { display: flex; flex-direction: column; gap: 5px; transform: translateZ(30px); }
+        .metric-value { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            text-shadow: 0 5px 15px rgba(0,242,254,0.3);
+        }
+        .metric-label { font-size: 0.85rem; font-weight: 600; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px;}
+
+        /* 3D Tech Stack Tags */
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; perspective: 1000px;}
+        .tech-tag { 
+            padding: 8px 16px; 
+            background: rgba(0,0,0,0.3); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 8px; 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            color: var(--text-main); 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            transform-style: preserve-3d;
+        }
+        .tech-tag i { transform: translateZ(20px); color: var(--secondary); }
+
+        /* 3D Image Container */
+        .image-container { transform-style: preserve-3d; margin: 40px 0; }
+        .project-image { 
+            width: 100%; 
+            border-radius: 12px; 
+            border: 1px solid var(--glass-border); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
+            transform: translateZ(30px); 
+        }
+        .caption { text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-top: 15px; margin-bottom: 30px; transform: translateZ(20px);}
     </style>
 </head>
 <body>
     <div class="nav-bar"><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Main Portfolio</a></div>
+    
     <div class="container">
         <span class="hero-tag">Financial Risk Analytics</span>
         <h1>Institutional Portfolio Liquidity Risk Model</h1>
         <p class="subtitle">An automated pipeline designed to detect settlement anomalies and mitigate liquidity exposure across 800K+ trades.</p>
 
-        <div class="metrics-grid">
+        <div class="metrics-grid" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
             <div class="metric"><span class="metric-value">+17%</span><span class="metric-label">Risk Detection</span></div>
             <div class="metric"><span class="metric-value">-34%</span><span class="metric-label">Manual Work</span></div>
             <div class="metric"><span class="metric-value">800K+</span><span class="metric-label">Records Analyzed</span></div>
@@ -44,16 +139,18 @@
 
         <h2>Tech Stack</h2>
         <div class="tech-stack">
-            <span class="tech-tag"><i class="fas fa-database" style="color: #2563eb;"></i> Snowflake SQL</span>
-            <span class="tech-tag"><i class="fab fa-python" style="color: #eab308;"></i> Python (Pandas/NumPy)</span>
-            <span class="tech-tag"><i class="fas fa-chart-bar" style="color: #10b981;"></i> Power BI</span>
+            <span class="tech-tag" data-tilt data-tilt-max="15" data-tilt-scale="1.1"><i class="fas fa-database"></i> Snowflake SQL</span>
+            <span class="tech-tag" data-tilt data-tilt-max="15" data-tilt-scale="1.1"><i class="fab fa-python" style="color: #eab308;"></i> Python (Pandas/NumPy)</span>
+            <span class="tech-tag" data-tilt data-tilt-max="15" data-tilt-scale="1.1"><i class="fas fa-chart-bar" style="color: #10b981;"></i> Power BI</span>
         </div>
 
         <h2>The Business Problem</h2>
         <p>In institutional trading, settlements do not happen instantly. When a counterparty delays their payment, it ties up internal capital and introduces <strong>Liquidity Risk</strong>. Previously, the finance team tracked these delays manually using massive Excel spreadsheets, making it impossible to catch high-exposure delays in real-time before they became a financial liability.</p>
 
-        <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1000&q=80?auto=format&fit=crop&w=1000&q=80" alt="Data Pipeline Dashboard" class="project-image">
-        <div class="caption">Figure 1: Financial risk exposure monitoring and data architecture.</div>
+        <div class="image-container" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
+            <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1000&q=80" alt="Data Pipeline Dashboard" class="project-image">
+            <div class="caption">Figure 1: Financial risk exposure monitoring and data architecture.</div>
+        </div>
 
         <h2>Methodology & Architecture</h2>
         <ul>
@@ -65,5 +162,7 @@
         <h2>The Impact</h2>
         <p>By shifting from manual Excel reports to an automated SQL/Python pipeline, the business realized a <strong>34% reduction in manual reporting hours</strong>. Furthermore, the statistical anomaly detection engine improved early identification of liquidity stress indicators by <strong>17%</strong>, allowing executive leadership to renegotiate terms with consistently late counterparties.</p>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </body>
 </html>
